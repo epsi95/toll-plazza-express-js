@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "08ce9bd7-474f-4fc9-ab3c-e9451737fc8f",
+		"name": "TollPlazza",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "index page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate receipt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"VIN\":\"123456789105547854\",\n    \"fromAddress\": \"delhi\",\n    \"toAddress\": \"gurgaon\",\n    \"isBothWay\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/receipt",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"receipt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a receipt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/receipt/TollID-111-123456789105547854-1622271729445",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"receipt",
+						"TollID-111-123456789105547854-1622271729445"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/checkRoute",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"receiptId\":\"TollID-111-123456789105547854-1622271729445\",\n    \"routeNumber\":2\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/receipt",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"receipt"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
